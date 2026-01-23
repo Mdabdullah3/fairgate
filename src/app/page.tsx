@@ -5,10 +5,11 @@
 import { useState, useEffect } from "react";
 import { useWallet } from "@solana/wallet-adapter-react";
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
 import { Sparkles } from "lucide-react";
 import HeroVault from "@/components/HeroVault";
 import ReputationGuide from "@/components/ReputationGuide";
+import VaultDashboard from "@/components/VaultDashboard";
 
 const MIN_FAIR_SCORE = 2;
 
@@ -18,7 +19,7 @@ export default function Home() {
   const [status, setStatus] = useState<"IDLE" | "SCANNING" | "GRANTED" | "DENIED">("IDLE");
   const { scrollY } = useScroll();
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
-
+  const [showDashboard, setShowDashboard] = useState(false);
   // LOGIC
   useEffect(() => {
     if (connected && publicKey) {
@@ -45,6 +46,7 @@ export default function Home() {
     }, 2000);
   };
 
+  console.log(showDashboard);
   return (
     <div className="min-h-screen bg-black text-white font-sans overflow-x-hidden selection:bg-purple-500/50">
 
@@ -88,14 +90,16 @@ export default function Home() {
 
         {/* THE PRISM */}
         <div className="w-full max-w-md px-6">
-          <HeroVault status={status} data={data} />
+          <HeroVault onEnter={() => setShowDashboard(true)} status={status} data={data} />
         </div>
 
 
       </main>
-
+      <AnimatePresence>
+        {showDashboard && <VaultDashboard data={data} onClose={() => setShowDashboard(false)} />}
+      </AnimatePresence>
       {/* 4. DETAILS (White Section) */}
-      <section className="relative z-20 bg-white text-black py-32 rounded-t-[60px] mt-[60px]">
+      <section className="relative z-20 bg-white text-black py-18 rounded-t-[60px] mt-[60px]">
         <div className="max-w-6xl mx-auto px-8">
           <div className="flex flex-col md:flex-row justify-between items-start mb-20">
             <h2 className="text-6xl font-medium tracking-tighter leading-none mb-8 md:mb-0">

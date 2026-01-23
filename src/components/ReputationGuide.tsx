@@ -62,12 +62,9 @@ export default function ReputationGuide({ data }: { data: any }) {
                             hover:shadow-[0_30px_80px_-20px_rgba(0,0,0,0.12)] transition-all duration-500
                         `}
                     >
-                        {/* 1. Ambient Background Blob */}
                         <div className={`absolute top-[-20%] right-[-20%] w-[300px] h-[300px] bg-linear-to-br ${item.gradient} opacity-[0.08] blur-[80px] group-hover:opacity-[0.15] transition-opacity duration-700`} />
 
                         <div className="relative z-10 h-full p-8 flex flex-col justify-between">
-
-                            {/* Top: Icon & Status */}
                             <div className="flex justify-between items-start">
                                 <div className={`w-14 h-14 rounded-2xl flex items-center justify-center bg-white/70 shadow-sm  `}>
                                     <item.icon size={28} className={`text-black/80`} />

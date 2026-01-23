@@ -103,12 +103,12 @@ export default function Home() {
       <section className="relative z-20 bg-[#fff9f9] border-t border-white/5 py-18 rounded-t-[60px] shadow-[0_-50px_100px_rgba(0,0,0,1)]">
         <div className="absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-purple-500 to-transparent opacity-50" />
 
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-24">
+        <div className="max-w-6xl mx-auto px-4 md:px-0">
+          <div className="md:flex  justify-between items-end mb-10 md:mb-24">
             <h2 className="text-6xl md:text-8xl font-medium tracking-tighter leading-[0.85] text-black">
               Identity <br /> <span className="text-zinc-600">Decoded.</span>
             </h2>
-            <p className="max-w-xs text-sm font-mono text-zinc-500 leading-relaxed uppercase tracking-wide mt-8 md:mt-0 text-right">
+            <p className="text-right text-sm font-mono text-zinc-500 leading-relaxed uppercase tracking-wide mt-8 md:mt-0 ">
               Analysis of on-chain behavior.<br />
               <span className="text-gray-900">Optimization Required.</span>
             </p>

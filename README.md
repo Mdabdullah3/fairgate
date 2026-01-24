@@ -3,7 +3,7 @@
 **FairGate** is a next-generation access control protocol built on Solana. It leverages the **FairScale Reputation Layer** to gate access to high-value DeFi ecosystems, ensuring only trusted actors can participate in exclusive mints, governance, and yield protocols.
 
 > **Live Demo:** [[Live Link](https://fairgate.vercel.app/)]  
-> **Video Walkthrough:** [Insert YouTube/Loom Link Here]
+> **Video Walkthrough:** [[Video Link](https://youtu.be/cOtQBZmiytQ)]
 
 ![Project Banner](public/banner.png)
 

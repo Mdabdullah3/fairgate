@@ -10,7 +10,7 @@ import HeroVault from "@/components/HeroVault";
 import ReputationGuide from "@/components/ReputationGuide";
 import VaultDashboard from "@/components/VaultDashboard";
 
-const MIN_FAIR_SCORE = 700;
+const MIN_FAIR_SCORE = 500;
 
 export default function Home() {
   const { publicKey, connected } = useWallet();
@@ -34,7 +34,6 @@ export default function Home() {
     setTimeout(async () => {
       try {
         const response = await fetch(`/api/score?wallet=${walletAddress}`);
-        //IF RESPONSE IS OK
         if (!response.ok) throw new Error("API Failed");
         const result = await response.json();
         if (result.fairscore !== undefined) {
@@ -46,7 +45,7 @@ export default function Home() {
       } catch (e) {
         // --- FALLBACK DEMO DATA 
         const DEMO_DATA = {
-          fairscore: 850, 
+          fairscore: 850,
           tier: 'platinum',
           social_score: 80,
           features: {
@@ -124,3 +123,4 @@ export default function Home() {
     </div>
   );
 }
+

@@ -114,10 +114,10 @@ export default function HeroVault({ status, data, onEnter }: any) {
                                 onClick={onEnter}
                                 className="group relative w-full py-5 rounded-[24px] overflow-hidden cursor-pointer transition-all duration-300 hover:scale-[1.02] shadow-[0_0_40px_rgba(255,255,255,0.3)] hover:shadow-[0_0_80px_rgba(16,185,129,0.5)]"
                             >
-                                <div className="absolute inset-0 bg-gradient-to-r from-white via-emerald-100 to-white animate-[shimmer_2s_linear_infinite] bg-[length:200%_100%]" />
+                                <div className="absolute inset-0 bg-linear-to-r from-white via-emerald-100 to-white animate-[shimmer_2s_linear_infinite] bg-size-[200%_100%]" />
                                 <div className="absolute inset-[2px] bg-white/90 rounded-[22px] backdrop-blur-sm group-hover:bg-white/95 transition-colors" />
                                 <span className="relative z-10 flex items-center justify-center gap-3 text-black font-black text-lg tracking-widest uppercase">
-                                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-black to-emerald-900">Enter Vault</span>
+                                    <span className="bg-clip-text text-transparent bg-linear-to-r from-black to-emerald-900">Enter Vault</span>
                                     <ArrowRight size={20} className="text-black group-hover:translate-x-1 transition-transform" strokeWidth={3} />
                                 </span>
                             </motion.button>

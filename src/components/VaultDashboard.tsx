@@ -20,7 +20,6 @@ export default function VaultDashboard({ onClose }: { onClose: () => void, data:
     const handleClaim = () => {
         if (isClaimed) return;
         setIsClaiming(true);
-        // Simulate Network Delay
         setTimeout(() => {
             setIsClaiming(false);
             setIsClaimed(true);
@@ -62,8 +61,6 @@ export default function VaultDashboard({ onClose }: { onClose: () => void, data:
                         <Activity size={14} className="text-amber-400" />
                         <span className="text-[10px] font-black uppercase tracking-[0.3em]">Protocol Revenue Share</span>
                     </div>
-
-                    {/* The Massive Number */}
                     <h1 className="text-[12vw] md:text-[10rem] font-medium tracking-tighter leading-none tabular-nums text-transparent bg-clip-text bg-linear-to-b from-white to-white/50 drop-shadow-2xl transition-all duration-1000">
                         {yieldAmount.toFixed(4)}
                     </h1>
@@ -74,7 +71,6 @@ export default function VaultDashboard({ onClose }: { onClose: () => void, data:
                             {isClaimed ? "Payout Complete" : "Accumulating"}
                         </span>
                     </div>
-
                     <motion.button
                         onClick={handleClaim}
                         disabled={isClaimed || isClaiming}

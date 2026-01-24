@@ -49,7 +49,6 @@ export default function ReputationGuide({ data }: { data: any }) {
             {items.map((item, i) => {
                 const progress = Math.min((item.current / item.target) * 100, 100);
                 const isComplete = progress >= 100;
-
                 return (
                     <motion.div
                         key={i}
@@ -102,8 +101,6 @@ export default function ReputationGuide({ data }: { data: any }) {
                                     </div>
                                 </div>
                             </div>
-
-                            {/* Bottom: The Massive Score */}
                             <div className="pt-8 border-t border-zinc-100/50 flex justify-between items-end">
                                 <div>
                                     <span className="block text-[10px] font-bold text-zinc-400 uppercase tracking-widest mb-1">Reputation Impact</span>
@@ -114,7 +111,6 @@ export default function ReputationGuide({ data }: { data: any }) {
                                         </span>
                                     </div>
                                 </div>
-
                                 <button className={`w-12 h-12 rounded-full flex items-center justify-center text-white bg-linear-to-br ${item.gradient} shadow-lg ${item.shadow} opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300`}>
                                     <ArrowUpRight size={24} />
                                 </button>

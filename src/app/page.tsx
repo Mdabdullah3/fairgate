@@ -44,9 +44,9 @@ export default function Home() {
           throw new Error("No Data");
         }
       } catch (e) {
-        // --- FALLBACK DEMO DATA (Guarantees the App Works) ---
+        // --- FALLBACK DEMO DATA 
         const DEMO_DATA = {
-          fairscore: 850, // High Score
+          fairscore: 850, 
           tier: 'platinum',
           social_score: 80,
           features: {
@@ -64,8 +64,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-black text-white font-sans overflow-x-hidden selection:bg-purple-500/50">
-
-      {/* 1. LIQUID BACKGROUND */}
       <div className="fixed inset-0 z-0">
         <motion.div
           animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
@@ -80,16 +78,13 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-black/40 backdrop-blur-[100px]" />
       </div>
-
       {/* 2. HEADER */}
       <header className="fixed top-0 w-full z-50 px-8 py-6 flex justify-between items-center">
         <span className="text-xl font-bold tracking-tighter">FAIRGATE.</span>
         <WalletMultiButton style={{ backgroundColor: "rgba(255,255,255,0.1)", borderRadius: "100px", height: "40px", fontSize: "12px", fontWeight: "600", backdropFilter: "blur(10px)" }} />
       </header>
-
-      {/* 3. HERO (Centered Prism) */}
+      {/* 3. HERO */}
       <main className="relative z-10 min-h-screen flex flex-col items-center justify-center pt-20">
-
         {/* Status Label */}
         <div className="mb-8 text-center space-y-4">
           <motion.div style={{ opacity }} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md">
@@ -102,8 +97,6 @@ export default function Home() {
             Verify your <br /> <span className="text-transparent bg-clip-text bg-linear-to-r from-white to-white/50">On-Chain Worth.</span>
           </motion.h1>
         </div>
-
-        {/* THE PRISM */}
         <div className="w-full max-w-md px-6 mb-5">
           <HeroVault onEnter={() => setShowDashboard(true)} status={status} data={data} />
         </div>
@@ -128,7 +121,6 @@ export default function Home() {
           <ReputationGuide data={data} />
         </div>
       </section>
-
     </div>
   );
 }

@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FairGate | Decentralized Reputation Vault
 
-## Getting Started
+**FairGate** is a next-generation access control protocol built on Solana. It leverages the **FairScale Reputation Layer** to gate access to high-value DeFi ecosystems, ensuring only trusted actors can participate in exclusive mints, governance, and yield protocols.
 
-First, run the development server:
+> **Live Demo:** [[Live Link](https://fairgate.vercel.app/)]  
+> **Video Walkthrough:** [Insert YouTube/Loom Link Here]
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+![Project Banner](public/banner.png)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🎯 The Mission
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+In the current Solana ecosystem, Sybil attacks and botting degrade the experience for genuine users. **FairGate** solves this by implementing **Reputation-Gated Architecture**.
 
-## Learn More
+We integrated FairScale to prove three core use cases:
 
-To learn more about Next.js, take a look at the following resources:
+1.  **Gated Access:** Blocking wallets with low trust scores from accessing the Vault.
+2.  **Dynamic Rewards:** Unlocking "Protocol Revenue Share" only for Legendary Tier users.
+3.  **Risk Guardrails:** Automatically adjusting borrow limits (Collateral Ratio) based on wallet history.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🏗️ Architecture Overview
 
-## Deploy on Vercel
+The application is built as a high-fidelity **Next.js 14** dApp using **Framer Motion** for hardware-accelerated animations.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### The Logic Flow:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1.  **Identity Layer:**
+    - User connects via **Solana Wallet Adapter** (Phantom/Solflare).
+    - The app establishes a secure handshake.
+2.  **Reputation Oracle (FairScale Integration):**
+    - The frontend sends the wallet address to our secure API Route (`/api/score`).
+    - The API proxies the request to `api.fairscale.xyz` using a protected API Key.
+    - FairScale returns the `FairScore`, `Tier` (Bronze/Silver/Gold), and `Badges`.
+3.  **The Gatekeeper Engine:**
+    - **IF Score < 700:** The Vault locks down. Visual feedback (Red Shield) denies entry.
+    - **IF Score > 700:** The Vault unlocks. The `HeroVault` component triggers the "Grant Access" animation.
+4.  **The Citadel (VIP Dashboard):**
+    - Upon entry, the user accesses the **"Citadel Interface"**.
+    - Real-time counters show accumulating Yield (Rewards).
+    - Risk parameters (Borrow Limits) are visually relaxed to "Unlimited".
+
+---
+
+## 🚀 Installation & Setup
+
+1.  **Clone the repository:**
+
+    ```bash
+    git clone [https://github.com/Mdabdullah3/fairgate.git](https://github.com/Mdabdullah3/fairgate.git)
+    ```
+
+2.  **Install dependencies:**
+
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
+
+
+3.  **Run the development server:**
+
+    ```bash
+    npm run dev
+    ```
+
+4.  **View the app:**
+    Open [http://localhost:3000](http://localhost:3000) in your browser
+
+### 🛡️ FairScale Integration Logic
+
+- **Biometric Scan:** An immersive Framer Motion animation that visualizes FairScale API latency as a "Live Identity Scan."
+- **Trust Tiers:** Dynamic UI states mapped directly to the `fairscore`:
+  - 🔴 **Red (Risk):** Restricted access, warnings for low-reputation wallets.
+  - 🟢 **Green (VIP):** Full access unlocked for high-score users.
+- **Sybil Resistance:** Hard-coded logic that disables and locks the "Mint Button" for wallets identified as potential Sybil attackers or low-score entities.
+- **Dynamic Yield:** A simulated high-APY reward stream that scales or unlocks exclusively for high-reputation wallets, encouraging long-term ecosystem health.
+
+## 🛠️ Tech Stack
+
+- **Framework:** [Next.js 16](https://nextjs.org/) (App Router)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/) with Custom Glassmorphism effects.
+- **Animation:** [Framer Motion](https://www.framer.com/motion/) (Complex physics-based transitions and "scanning" effects).
+- **Blockchain:** [@solana/wallet-adapter](https://github.com/anza-xyz/wallet-adapter) for seamless wallet connection.
+- **Data:** [FairScale API v1](https://docs.fairscale.com) for real-time reputation scoring.
+
+## Built for the Superteam FairScale Bounty.

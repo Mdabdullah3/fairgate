@@ -92,14 +92,10 @@ export default function Home() {
         <div className="w-full max-w-md px-6">
           <HeroVault onEnter={() => setShowDashboard(true)} status={status} data={data} />
         </div>
-
-
       </main>
       <AnimatePresence>
         {showDashboard && <VaultDashboard data={data} onClose={() => setShowDashboard(false)} />}
       </AnimatePresence>
-
-      {/* 4. DETAILS (Dark Mode Upgrade) */}
       <section className="relative z-20 bg-[#fff9f9] border-t border-white/5 py-18 rounded-t-[60px] shadow-[0_-50px_100px_rgba(0,0,0,1)]">
         <div className="absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-purple-500 to-transparent opacity-50" />
 

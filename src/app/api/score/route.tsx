@@ -15,8 +15,9 @@ export async function GET(request: Request) {
         });
 
         if (!res.ok) throw new Error('API Error');
+        
         const data = await res.json();
-        console.log(data, "data load");
+        console.log(data, "data load", res, "response");
 
         return NextResponse.json(data);
     } catch (error) {

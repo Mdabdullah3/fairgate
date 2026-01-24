@@ -49,7 +49,7 @@ The application is built as a high-fidelity **Next.js 14** dApp using **Framer M
 1.  **Clone the repository:**
 
     ```bash
-    git clone [https://github.com/Mdabdullah3/fairgate.git](https://github.com/Mdabdullah3/fairgate.git)
+    git clone (https://github.com/Mdabdullah3/fairgate.git)
     ```
 
 2.  **Install dependencies:**
@@ -59,7 +59,6 @@ The application is built as a high-fidelity **Next.js 14** dApp using **Framer M
     # or
     yarn install
     ```
-
 
 3.  **Run the development server:**
 
